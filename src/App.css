@@ -1,38 +1,234 @@
+/* App.css */
+
+/* Root variables for color scheme */
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #800020;
+  --background-color: #b3adad5d;
+  --text-color: #2c3e50;
+}
+
+/* Global body styles */
+body {
+  font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* Main application container styles */
 .App {
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+/* Header styles */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header title styles */
+header h1 {
+  margin: 0;
+  font-size: 2.2em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Logo styles within header */
+header .logo {
+  display: inline-block;
+  height: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Styles for user list container */
+.UserList {
+  list-style: none;
+  padding: 0;
+  margin-top: 25px;
+}
+
+/* Styles for each user list item */
+.UserListItem {
+  background: #fff;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.986);
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  border-left: 5px solid var(--primary-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s;
+}
+
+/* Styles for user details in list */
+.UserDetails {
+  display: flex;
   align-items: center;
+  justify-content: flex-start;
+}
+
+/* Styles for the text next to user icons */
+.UserDetails span {
+  margin-left: 10px;
+}
+
+/* Additional styles for user list item */
+.UserList li {
+  background: #ffffff;
+  margin: 15px 0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.63);
+  border-left: 5px solid var(--primary-color);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  animation: fadeIn 1s;
+}
+
+/* Icon styles in user list items */
+.UserList li i {
+  color: var(--primary-color);
+  margin-right: 10px;
+}
+
+/* Hover effects for user list items */
+.UserList li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px #80002079;
+  border-left: 5px solid var(--accent-color);
+}
+
+/* Hover effect for icons in user list items */
+.UserList li:hover i {
+  color: var(--accent-color);
+  transition: color 0.2s ease;
+}
+
+/* Styles for the search component */
+.Search {
+  margin: 40px auto;
+  width: 80%;
+  max-width: 500px;
+  text-align: center;
+}
+
+/* Styles for the search input field */
+.Search input {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Styles for search input field when focused */
+.Search input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 3px 8px #800020;
+}
+
+/* Styles for loading indicator and error display */
+.LoadingIndicator, .ErrorDisplay {
+  color: var(--accent-color);
+  font-size: 1.3em;
+  text-align: center;
+  margin: 20px 0;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+/* Spinner animation styles for loading indicator */
+.LoadingIndicator .spinner {
+  border: 4px solid rgba(0, 0, 0, 0.452);
+  border-top: 4px solid var(--accent-color);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  animation: spin 2s linear infinite;
+}
+
+/* Keyframe animation for spinner */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+  .Search {
+    width: 90%;
+  }
+
+  .App {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header .logo {
+    height: 40px;
+  }
+
+  .UserListItem {
+    text-align: center;
+  }
+
+  .UserDetails {
+    justify-content: center;
+  }
+
+  .UserDetails span {
+    margin-left: 0;
+    display: block;
+  }
+}
+
+/* Styles for buttons and button-like elements */
+button, 
+button-like {
+  background-color: var(--primary-color);
   color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+/* Hover styles for buttons and button-like elements */
+button:hover, .button-like:hover {
+  background-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Additional responsive styles for very small screens */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+/* Keyframe animation for fade-in effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
