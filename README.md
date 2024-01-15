@@ -15,7 +15,7 @@ This React application fetches and displays a list of users from a public API. I
 
 2. Navigate to the project directory:
     ```bash
-    cd user-fetch-app
+    cd fetch-users-app-cv
 
 3. Install the project dependencies:
     ```bash
